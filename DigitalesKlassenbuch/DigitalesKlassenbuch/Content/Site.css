@@ -4,6 +4,24 @@ body {
     padding-bottom: 20px;
 }
 
+
+
+.navbar-inverse {
+    background-color: #F3AE00;
+    border-color: #ffd800;
+}
+
+/* Title */
+.navbar-default .navbar-brand {
+    color: #000;
+}
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        color: #000;
+    }
+
+
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

@@ -158,6 +158,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Dienste\Abwesenheitsliste.aspx" />
+    <Content Include="Dienste\Lehrgansinhalte.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -191,6 +193,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="style.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -222,6 +225,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Dienste\Abwesenheitsliste.aspx.cs">
+      <DependentUpon>Abwesenheitsliste.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dienste\Abwesenheitsliste.aspx.designer.cs">
+      <DependentUpon>Abwesenheitsliste.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dienste\Lehrgansinhalte.aspx.cs">
+      <DependentUpon>Lehrgansinhalte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dienste\Lehrgansinhalte.aspx.designer.cs">
+      <DependentUpon>Lehrgansinhalte.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

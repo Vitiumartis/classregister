@@ -7,9 +7,18 @@
 // </automatisch generiert>
 //------------------------------------------------------------------------------
 
-namespace DigitalesKlassenbuch {
+namespace DigitalesKlassenbuch.Dienste {
     
     
-    public partial class _Default {
+    public partial class Abwesenheitsliste {
+        
+        /// <summary>
+        /// form1-Steuerelement
+        /// </summary>
+        /// <remarks>
+        /// Automatisch generiertes Feld
+        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }
