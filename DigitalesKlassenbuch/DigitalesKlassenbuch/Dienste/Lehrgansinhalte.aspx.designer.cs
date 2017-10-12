@@ -11,14 +11,5 @@ namespace DigitalesKlassenbuch.Dienste {
     
     
     public partial class Lehrgansinhalte {
-        
-        /// <summary>
-        /// form1-Steuerelement
-        /// </summary>
-        /// <remarks>
-        /// Automatisch generiertes Feld
-        /// Zum Ändern Felddeklaration aus der Designerdatei in eine Code-Behind-Datei verschieben.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }
