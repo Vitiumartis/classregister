@@ -137,8 +137,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -154,7 +152,6 @@
       <DependentUpon>classlog.edmx</DependentUpon>
       <LastGenOutput>classlog.cs</LastGenOutput>
     </Content>
-    <Content Include="DB TSQL\classlog base model v0.1 mssql 2016.sql" />
     <Content Include="DB TSQL\scriptDaten.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Dienste\LehrgansinhalteNeu.aspx" />
@@ -222,21 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DAL\abwesende.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
@@ -259,15 +242,6 @@
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\lehrgangsinhalte.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\lehrgangsinhalte_themen.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\lehrgang_teilnehmer.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\lehrgang_trainer.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\standorte.cs">
