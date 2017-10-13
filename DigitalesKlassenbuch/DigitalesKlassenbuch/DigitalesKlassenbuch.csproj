@@ -260,13 +260,10 @@
     <Compile Include="DAL\lehrgangsinhalte.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\lehrgangsinhalte_themen.cs">
+    <Compile Include="DAL\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\lehrgang_teilnehmer.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\lehrgang_trainer.cs">
+    <Compile Include="DAL\sp_helpdiagrams_Result.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\standorte.cs">
@@ -275,7 +272,7 @@
     <Compile Include="DAL\teilnehmer.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\theman.cs">
+    <Compile Include="DAL\themen.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\trainer.cs">

@@ -18,7 +18,7 @@ namespace DigitalesKlassenbuch.DAL
         public teilnehmer()
         {
             this.abwesendes = new HashSet<abwesende>();
-            this.lehrgang_teilnehmer = new HashSet<lehrgang_teilnehmer>();
+            this.lehrgangs = new HashSet<lehrgang>();
         }
     
         public int teilnehmer_id { get; set; }
@@ -28,6 +28,6 @@ namespace DigitalesKlassenbuch.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<abwesende> abwesendes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lehrgang_teilnehmer> lehrgang_teilnehmer { get; set; }
+        public virtual ICollection<lehrgang> lehrgangs { get; set; }
     }
 }

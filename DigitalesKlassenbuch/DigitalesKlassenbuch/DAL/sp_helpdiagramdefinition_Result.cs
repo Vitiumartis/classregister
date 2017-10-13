@@ -10,15 +10,10 @@
 namespace DigitalesKlassenbuch.DAL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class lehrgang_teilnehmer
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int lehrgangs_id { get; set; }
-        public int teilnehmer_id { get; set; }
-        public int lehrgang_teilnehmer_id { get; set; }
-    
-        public virtual lehrgang lehrgang { get; set; }
-        public virtual teilnehmer teilnehmer { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
