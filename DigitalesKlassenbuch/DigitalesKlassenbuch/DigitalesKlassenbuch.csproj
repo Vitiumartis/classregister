@@ -261,6 +261,12 @@
     <Compile Include="DAL\lehrgangsinhalte.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\sp_helpdiagrams_Result.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\standorte.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
