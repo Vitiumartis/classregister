@@ -4,6 +4,65 @@ body {
     padding-bottom: 20px;
 }
 
+
+
+.navbar-inverse {
+    background-color: #F3AE00;
+    border-color: #ffd800;
+}
+
+/* Title */
+    .navbar-inverse .navbar-brand {
+        color: #000;
+    }
+        .navbar-inverse .navbar-brand:hover,
+        .navbar-inverse .navbar-brand:focus {
+            color: #808080;
+        }
+
+/* Link */
+    .navbar-inverse .navbar-nav > li > a {
+        color: #2F23D9;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #333; 
+        }
+
+    .navbar-inverse .navbar-nav > .active > a,
+    .navbar-inverse .navbar-nav > .active > a:hover,
+    .navbar-inverse .navbar-nav > .active > a:focus {
+        color: #555;
+        background-color: #E7E7E7;
+    }
+
+    .navbar-inverse .navbar-nav > .open > a,
+    .navbar-inverse .navbar-nav > .open > a:hover,
+    .navbar-inverse .navbar-nav > .open > a:focus {
+        color: #555;
+        background-color: #D5D5D5;
+    }
+
+/* Caret */
+    .navbar-inverse .navbar-nav > .dropdown > a .caret {
+        border-top-color: #777;
+        border-bottom-color: #777;
+    }
+
+    .navbar-inverse .navbar-nav > .dropdown > a:hover .caret,
+    .navbar-inverse .navbar-nav > .dropdown > a:focus .caret {
+        border-top-color: #333;
+        border-bottom-color: #333;
+    }
+
+    .navbar-inverse .navbar-nav > .open > a .caret,
+    .navbar-inverse .navbar-nav > .open > a:hover .caret,
+    .navbar-inverse .navbar-nav > .open > a:focus .caret {
+        border-top-color: #555;
+        border-bottom-color: #555;
+    }
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

@@ -7,9 +7,9 @@
 // </automatisch generiert>
 //------------------------------------------------------------------------------
 
-namespace DigitalesKlassenbuch {
+namespace DigitalesKlassenbuch.Dienste {
     
     
-    public partial class _Default {
+    public partial class Lehrgansinhalte {
     }
 }

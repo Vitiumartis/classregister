@@ -7,13 +7,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Eigene ASP.NET-Anwendung</title>
+    <title><%: Page.Title %> - Digitales Klassenbuch - Lutz und Grub AG</title>
 
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
+        <%:Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
+
+    
+
+   
+
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -45,16 +50,21 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                        
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Anwendungsname</a>
+                    <a class="navbar-brand" runat="server" href="~/">Digitales Klassenbuch</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Startseite</a></li>
-                        <li><a runat="server" href="~/About">Informationen</a></li>
-                        <li><a runat="server" href="~/Contact">Kontakt</a></li>
+                       
+
+                   
+                      
+                   <li><a runat="server" href="~/Dienste/Abwesenheitsliste">Abwesenheitsliste</a></li>
+                        <li><a runat="server" href="~/Dienste/Lehrgansinhalte">Lehrgansinhalte</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -64,7 +74,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Meine ASP.NET-Anwendung</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Lutz und Grub AG</p>
             </footer>
         </div>
 
