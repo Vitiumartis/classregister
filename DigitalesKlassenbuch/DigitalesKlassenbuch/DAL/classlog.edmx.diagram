@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d42ddf7d88694003b01a1c648fc84318" Name="Diagram1">
-        <EntityTypeShape EntityType="ClasslogModel.abwesende" Width="1.5" PointX="2.125" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClasslogModel.lehrgang" Width="1.5" PointX="4.625" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClasslogModel.lehrgangsinhalte" Width="1.5" PointX="4.625" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClasslogModel.standorte" Width="1.5" PointX="4.625" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClasslogModel.teilnehmer" Width="1.5" PointX="2.125" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClasslogModel.themen" Width="1.5" PointX="7.125" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClasslogModel.trainer" Width="1.5" PointX="7.125" PointY="5.25" IsExpanded="true" />
-        <AssociationConnector Association="ClasslogModel.fk_lehrgangsinhalte_abwesende" ManuallyRouted="false" />
-        <AssociationConnector Association="ClasslogModel.fk_teilnehmer_abwesende" ManuallyRouted="false" />
-        <AssociationConnector Association="ClasslogModel.fk_lehrgang_lehrgangsinhalte" ManuallyRouted="false" />
-        <AssociationConnector Association="ClasslogModel.fk_standorte_lehrgang" ManuallyRouted="false" />
-        <AssociationConnector Association="ClasslogModel.fk_trainer_lehrgangsinhalte" ManuallyRouted="false" ></AssociationConnector>
-        <AssociationConnector Association="ClasslogModel.lehrgang_teilnehmer" ManuallyRouted="false" />
-        <AssociationConnector Association="ClasslogModel.lehrgang_trainer" ManuallyRouted="false" />
-        <AssociationConnector Association="ClasslogModel.lehrgangsinhalte_themen" ManuallyRouted="false" />
+      <Diagram DiagramId="e7520e999c984ff180f90ac93b9f3571" Name="Diagram1">
+        <EntityTypeShape EntityType="classlogModel.abwesende" Width="1.5" PointX="1.625" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.lehrgang" Width="1.5" PointX="4.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.lehrgangsinhalte" Width="1.5" PointX="4.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.standorte" Width="1.5" PointX="4.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.teilnehmer" Width="1.5" PointX="1.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.themen" Width="1.5" PointX="7.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.trainer" Width="1.5" PointX="7.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="classlogModel.fk_lehrgangsinhalte_abwesende" ManuallyRouted="false" />
+        <AssociationConnector Association="classlogModel.fk_teilnehmer_abwesende" ManuallyRouted="false" />
+        <AssociationConnector Association="classlogModel.fk_lehrgang_lehrgangsinhalte" ManuallyRouted="false" />
+        <AssociationConnector Association="classlogModel.fk_standorte_lehrgang" ManuallyRouted="false" />
+        <AssociationConnector Association="classlogModel.fk_trainer_lehrgangsinhalte" ManuallyRouted="false" />
+        <AssociationConnector Association="classlogModel.lehrgang_teilnehmer" ManuallyRouted="false" />
+        <AssociationConnector Association="classlogModel.lehrgang_trainer" ManuallyRouted="false" />
+        <AssociationConnector Association="classlogModel.lehrgangsinhalte_themen" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
