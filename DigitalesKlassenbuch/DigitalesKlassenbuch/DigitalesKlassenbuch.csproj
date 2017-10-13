@@ -99,6 +99,8 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -142,6 +144,18 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DAL\classlog.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>classlog.edmx</DependentUpon>
+      <LastGenOutput>classlog.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\classlog.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>classlog.edmx</DependentUpon>
+      <LastGenOutput>classlog.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataGrid_Farbschema.aspx" />
+    <Content Include="DB TSQL\classlog base model v0.1 mssql 2016.sql" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -157,6 +171,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="DAL\classlog.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>classlog.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\classlog.edmx.diagram">
+      <DependentUpon>classlog.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -213,6 +234,51 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\abwesende.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\classlog.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>classlog.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\classlog.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\classlog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>classlog.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\lehrgang.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\lehrgangsinhalte.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\lehrgangsinhalte_themen.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\lehrgang_teilnehmer.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\lehrgang_trainer.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\standorte.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\teilnehmer.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\themen.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\trainer.cs">
+      <DependentUpon>classlog.tt</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -259,6 +325,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
