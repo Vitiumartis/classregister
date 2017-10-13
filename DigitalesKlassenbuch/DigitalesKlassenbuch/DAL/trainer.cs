@@ -18,7 +18,7 @@ namespace DigitalesKlassenbuch.DAL
         public trainer()
         {
             this.lehrgang_trainer = new HashSet<lehrgang_trainer>();
-            this.lehrgangsinhalte = new HashSet<lehrgangsinhalte>();
+            this.lehrgangsinhaltes = new HashSet<lehrgangsinhalte>();
         }
     
         public int trainer_id { get; set; }
@@ -28,6 +28,6 @@ namespace DigitalesKlassenbuch.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<lehrgang_trainer> lehrgang_trainer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lehrgangsinhalte> lehrgangsinhalte { get; set; }
+        public virtual ICollection<lehrgangsinhalte> lehrgangsinhaltes { get; set; }
     }
 }

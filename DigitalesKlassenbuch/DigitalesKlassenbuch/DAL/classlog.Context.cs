@@ -25,15 +25,15 @@ namespace DigitalesKlassenbuch.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<abwesende> abwesende { get; set; }
-        public virtual DbSet<lehrgang> lehrgang { get; set; }
+        public virtual DbSet<abwesende> abwesendes { get; set; }
+        public virtual DbSet<lehrgang> lehrgangs { get; set; }
         public virtual DbSet<lehrgang_teilnehmer> lehrgang_teilnehmer { get; set; }
         public virtual DbSet<lehrgang_trainer> lehrgang_trainer { get; set; }
-        public virtual DbSet<lehrgangsinhalte> lehrgangsinhalte { get; set; }
+        public virtual DbSet<lehrgangsinhalte> lehrgangsinhaltes { get; set; }
         public virtual DbSet<lehrgangsinhalte_themen> lehrgangsinhalte_themen { get; set; }
-        public virtual DbSet<standorte> standorte { get; set; }
-        public virtual DbSet<teilnehmer> teilnehmer { get; set; }
-        public virtual DbSet<themen> themen { get; set; }
-        public virtual DbSet<trainer> trainer { get; set; }
+        public virtual DbSet<standorte> standortes { get; set; }
+        public virtual DbSet<teilnehmer> teilnehmers { get; set; }
+        public virtual DbSet<theman> themen { get; set; }
+        public virtual DbSet<trainer> trainers { get; set; }
     }
 }

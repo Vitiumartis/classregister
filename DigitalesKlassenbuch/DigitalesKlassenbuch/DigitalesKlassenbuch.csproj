@@ -154,8 +154,7 @@
       <DependentUpon>classlog.edmx</DependentUpon>
       <LastGenOutput>classlog.cs</LastGenOutput>
     </Content>
-    <Content Include="DataGrid_Farbschema.aspx" />
-    <Content Include="DB TSQL\classlog base model v0.1 mssql 2016.sql" />
+    <Content Include="DB TSQL\classlog base model v0.1.1 mssql 2016.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Dienste\LehrgansinhalteNeu.aspx" />
     <Content Include="favicon.ico" />
@@ -276,7 +275,7 @@
     <Compile Include="DAL\teilnehmer.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\themen.cs">
+    <Compile Include="DAL\theman.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\trainer.cs">

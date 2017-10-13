@@ -19,6 +19,6 @@ namespace DigitalesKlassenbuch.DAL
         public int themen_id { get; set; }
     
         public virtual lehrgangsinhalte lehrgangsinhalte { get; set; }
-        public virtual themen themen { get; set; }
+        public virtual theman theman { get; set; }
     }
 }

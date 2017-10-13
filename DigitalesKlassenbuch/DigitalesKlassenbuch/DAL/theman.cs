@@ -12,10 +12,10 @@ namespace DigitalesKlassenbuch.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class themen
+    public partial class theman
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public themen()
+        public theman()
         {
             this.lehrgangsinhalte_themen = new HashSet<lehrgangsinhalte_themen>();
         }

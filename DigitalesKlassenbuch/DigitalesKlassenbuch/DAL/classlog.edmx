@@ -333,7 +333,7 @@
           <Property Name="standort_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="lehrgang_teilnehmer" Relationship="Self.fk_lehrgang_lehrgang_teilnehmer" FromRole="lehrgang" ToRole="lehrgang_teilnehmer" />
           <NavigationProperty Name="lehrgang_trainer" Relationship="Self.fk_lehrgang_lehrgang_trainer" FromRole="lehrgang" ToRole="lehrgang_trainer" />
-          <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_lehrgang_lehrgangsinhalte" FromRole="lehrgang" ToRole="lehrgangsinhalte" />
+          <NavigationProperty Name="lehrgangsinhaltes" Relationship="Self.fk_lehrgang_lehrgangsinhalte" FromRole="lehrgang" ToRole="lehrgangsinhalte" />
           <NavigationProperty Name="standorte" Relationship="Self.fk_standorte_lehrgang" FromRole="lehrgang" ToRole="standorte" />
         </EntityType>
         <EntityType Name="lehrgang_teilnehmer">
@@ -364,7 +364,7 @@
           <Property Name="lehrgangs_id" Type="Int32" Nullable="false" />
           <Property Name="trainer_id" Type="Int32" Nullable="false" />
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="abwesende" Relationship="Self.fk_lehrgangsinhalte_abwesende" FromRole="lehrgangsinhalte" ToRole="abwesende" />
+          <NavigationProperty Name="abwesendes" Relationship="Self.fk_lehrgangsinhalte_abwesende" FromRole="lehrgangsinhalte" ToRole="abwesende" />
           <NavigationProperty Name="lehrgang" Relationship="Self.fk_lehrgang_lehrgangsinhalte" FromRole="lehrgangsinhalte" ToRole="lehrgang" />
           <NavigationProperty Name="lehrgangsinhalte_themen" Relationship="Self.fk_lehrgangsinhalte_lehrgangsinhalte_themen" FromRole="lehrgangsinhalte" ToRole="lehrgangsinhalte_themen" />
           <NavigationProperty Name="trainer" Relationship="Self.fk_trainer_lehrgangsinhalte" FromRole="lehrgangsinhalte" ToRole="trainer" />
@@ -377,7 +377,7 @@
           <Property Name="lehrgangsinhalte_id" Type="Int32" Nullable="false" />
           <Property Name="themen_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_lehrgangsinhalte_lehrgangsinhalte_themen" FromRole="lehrgangsinhalte_themen" ToRole="lehrgangsinhalte" />
-          <NavigationProperty Name="themen" Relationship="Self.fk_themen_lehrgangsinhalte_themen" FromRole="lehrgangsinhalte_themen" ToRole="themen" />
+          <NavigationProperty Name="theman" Relationship="Self.fk_themen_lehrgangsinhalte_themen" FromRole="lehrgangsinhalte_themen" ToRole="themen" />
         </EntityType>
         <EntityType Name="standorte">
           <Key>
@@ -387,7 +387,7 @@
           <Property Name="straße" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ort" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="plz" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="lehrgang" Relationship="Self.fk_standorte_lehrgang" FromRole="standorte" ToRole="lehrgang" />
+          <NavigationProperty Name="lehrgangs" Relationship="Self.fk_standorte_lehrgang" FromRole="standorte" ToRole="lehrgang" />
         </EntityType>
         <EntityType Name="teilnehmer">
           <Key>
@@ -396,10 +396,10 @@
           <Property Name="teilnehmer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="vorename" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="nachname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="abwesende" Relationship="Self.fk_teilnehmer_abwesende" FromRole="teilnehmer" ToRole="abwesende" />
+          <NavigationProperty Name="abwesendes" Relationship="Self.fk_teilnehmer_abwesende" FromRole="teilnehmer" ToRole="abwesende" />
           <NavigationProperty Name="lehrgang_teilnehmer" Relationship="Self.fk_teilnehmer_lehrgang_teilnehmer" FromRole="teilnehmer" ToRole="lehrgang_teilnehmer" />
         </EntityType>
-        <EntityType Name="themen">
+        <EntityType Name="theman">
           <Key>
             <PropertyRef Name="themen_id" />
           </Key>
@@ -416,7 +416,7 @@
           <Property Name="vorname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="nachname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="lehrgang_trainer" Relationship="Self.fk_trainer_lehrgang_trainer" FromRole="trainer" ToRole="lehrgang_trainer" />
-          <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_trainer_lehrgangsinhalte" FromRole="trainer" ToRole="lehrgangsinhalte" />
+          <NavigationProperty Name="lehrgangsinhaltes" Relationship="Self.fk_trainer_lehrgangsinhalte" FromRole="trainer" ToRole="lehrgangsinhalte" />
         </EntityType>
         <Association Name="fk_lehrgangsinhalte_abwesende">
           <End Role="lehrgangsinhalte" Type="Self.lehrgangsinhalte" Multiplicity="1">
@@ -559,7 +559,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_themen_lehrgangsinhalte_themen">
-          <End Role="themen" Type="Self.themen" Multiplicity="1">
+          <End Role="themen" Type="Self.theman" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="lehrgangsinhalte_themen" Type="Self.lehrgangsinhalte_themen" Multiplicity="*" />
@@ -573,55 +573,55 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="classlog" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="abwesende" EntityType="Self.abwesende" />
-          <EntitySet Name="lehrgang" EntityType="Self.lehrgang" />
+          <EntitySet Name="abwesendes" EntityType="Self.abwesende" />
+          <EntitySet Name="lehrgangs" EntityType="Self.lehrgang" />
           <EntitySet Name="lehrgang_teilnehmer" EntityType="Self.lehrgang_teilnehmer" />
           <EntitySet Name="lehrgang_trainer" EntityType="Self.lehrgang_trainer" />
-          <EntitySet Name="lehrgangsinhalte" EntityType="Self.lehrgangsinhalte" />
+          <EntitySet Name="lehrgangsinhaltes" EntityType="Self.lehrgangsinhalte" />
           <EntitySet Name="lehrgangsinhalte_themen" EntityType="Self.lehrgangsinhalte_themen" />
-          <EntitySet Name="standorte" EntityType="Self.standorte" />
-          <EntitySet Name="teilnehmer" EntityType="Self.teilnehmer" />
-          <EntitySet Name="themen" EntityType="Self.themen" />
-          <EntitySet Name="trainer" EntityType="Self.trainer" />
+          <EntitySet Name="standortes" EntityType="Self.standorte" />
+          <EntitySet Name="teilnehmers" EntityType="Self.teilnehmer" />
+          <EntitySet Name="themen" EntityType="Self.theman" />
+          <EntitySet Name="trainers" EntityType="Self.trainer" />
           <AssociationSet Name="fk_lehrgangsinhalte_abwesende" Association="Self.fk_lehrgangsinhalte_abwesende">
-            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
-            <End Role="abwesende" EntitySet="abwesende" />
+            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhaltes" />
+            <End Role="abwesende" EntitySet="abwesendes" />
           </AssociationSet>
           <AssociationSet Name="fk_teilnehmer_abwesende" Association="Self.fk_teilnehmer_abwesende">
-            <End Role="teilnehmer" EntitySet="teilnehmer" />
-            <End Role="abwesende" EntitySet="abwesende" />
+            <End Role="teilnehmer" EntitySet="teilnehmers" />
+            <End Role="abwesende" EntitySet="abwesendes" />
           </AssociationSet>
           <AssociationSet Name="fk_lehrgang_lehrgang_teilnehmer" Association="Self.fk_lehrgang_lehrgang_teilnehmer">
-            <End Role="lehrgang" EntitySet="lehrgang" />
+            <End Role="lehrgang" EntitySet="lehrgangs" />
             <End Role="lehrgang_teilnehmer" EntitySet="lehrgang_teilnehmer" />
           </AssociationSet>
           <AssociationSet Name="fk_lehrgang_lehrgang_trainer" Association="Self.fk_lehrgang_lehrgang_trainer">
-            <End Role="lehrgang" EntitySet="lehrgang" />
+            <End Role="lehrgang" EntitySet="lehrgangs" />
             <End Role="lehrgang_trainer" EntitySet="lehrgang_trainer" />
           </AssociationSet>
           <AssociationSet Name="fk_lehrgang_lehrgangsinhalte" Association="Self.fk_lehrgang_lehrgangsinhalte">
-            <End Role="lehrgang" EntitySet="lehrgang" />
-            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
+            <End Role="lehrgang" EntitySet="lehrgangs" />
+            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhaltes" />
           </AssociationSet>
           <AssociationSet Name="fk_standorte_lehrgang" Association="Self.fk_standorte_lehrgang">
-            <End Role="standorte" EntitySet="standorte" />
-            <End Role="lehrgang" EntitySet="lehrgang" />
+            <End Role="standorte" EntitySet="standortes" />
+            <End Role="lehrgang" EntitySet="lehrgangs" />
           </AssociationSet>
           <AssociationSet Name="fk_teilnehmer_lehrgang_teilnehmer" Association="Self.fk_teilnehmer_lehrgang_teilnehmer">
-            <End Role="teilnehmer" EntitySet="teilnehmer" />
+            <End Role="teilnehmer" EntitySet="teilnehmers" />
             <End Role="lehrgang_teilnehmer" EntitySet="lehrgang_teilnehmer" />
           </AssociationSet>
           <AssociationSet Name="fk_trainer_lehrgang_trainer" Association="Self.fk_trainer_lehrgang_trainer">
-            <End Role="trainer" EntitySet="trainer" />
+            <End Role="trainer" EntitySet="trainers" />
             <End Role="lehrgang_trainer" EntitySet="lehrgang_trainer" />
           </AssociationSet>
           <AssociationSet Name="fk_lehrgangsinhalte_lehrgangsinhalte_themen" Association="Self.fk_lehrgangsinhalte_lehrgangsinhalte_themen">
-            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
+            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhaltes" />
             <End Role="lehrgangsinhalte_themen" EntitySet="lehrgangsinhalte_themen" />
           </AssociationSet>
           <AssociationSet Name="fk_trainer_lehrgangsinhalte" Association="Self.fk_trainer_lehrgangsinhalte">
-            <End Role="trainer" EntitySet="trainer" />
-            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
+            <End Role="trainer" EntitySet="trainers" />
+            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhaltes" />
           </AssociationSet>
           <AssociationSet Name="fk_themen_lehrgangsinhalte_themen" Association="Self.fk_themen_lehrgangsinhalte_themen">
             <End Role="themen" EntitySet="themen" />
@@ -634,7 +634,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="classlogModelStoreContainer" CdmEntityContainer="classlog">
-          <EntitySetMapping Name="abwesende">
+          <EntitySetMapping Name="abwesendes">
             <EntityTypeMapping TypeName="classlogModel.abwesende">
               <MappingFragment StoreEntitySet="abwesende">
                 <ScalarProperty Name="abwesenheits_id" ColumnName="abwesenheits_id" />
@@ -647,7 +647,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="lehrgang">
+          <EntitySetMapping Name="lehrgangs">
             <EntityTypeMapping TypeName="classlogModel.lehrgang">
               <MappingFragment StoreEntitySet="lehrgang">
                 <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
@@ -676,7 +676,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="lehrgangsinhalte">
+          <EntitySetMapping Name="lehrgangsinhaltes">
             <EntityTypeMapping TypeName="classlogModel.lehrgangsinhalte">
               <MappingFragment StoreEntitySet="lehrgangsinhalte">
                 <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalts_id" />
@@ -695,7 +695,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="standorte">
+          <EntitySetMapping Name="standortes">
             <EntityTypeMapping TypeName="classlogModel.standorte">
               <MappingFragment StoreEntitySet="standorte">
                 <ScalarProperty Name="standort_id" ColumnName="standort_id" />
@@ -705,7 +705,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="teilnehmer">
+          <EntitySetMapping Name="teilnehmers">
             <EntityTypeMapping TypeName="classlogModel.teilnehmer">
               <MappingFragment StoreEntitySet="teilnehmer">
                 <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
@@ -715,7 +715,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="themen">
-            <EntityTypeMapping TypeName="classlogModel.themen">
+            <EntityTypeMapping TypeName="classlogModel.theman">
               <MappingFragment StoreEntitySet="themen">
                 <ScalarProperty Name="themen_id" ColumnName="themen_id" />
                 <ScalarProperty Name="titel" ColumnName="titel" />
@@ -723,7 +723,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="trainer">
+          <EntitySetMapping Name="trainers">
             <EntityTypeMapping TypeName="classlogModel.trainer">
               <MappingFragment StoreEntitySet="trainer">
                 <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
@@ -746,7 +746,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />

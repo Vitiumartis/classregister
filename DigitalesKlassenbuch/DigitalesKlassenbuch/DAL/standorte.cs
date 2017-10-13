@@ -17,7 +17,7 @@ namespace DigitalesKlassenbuch.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public standorte()
         {
-            this.lehrgang = new HashSet<lehrgang>();
+            this.lehrgangs = new HashSet<lehrgang>();
         }
     
         public int standort_id { get; set; }
@@ -26,6 +26,6 @@ namespace DigitalesKlassenbuch.DAL
         public string plz { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lehrgang> lehrgang { get; set; }
+        public virtual ICollection<lehrgang> lehrgangs { get; set; }
     }
 }
