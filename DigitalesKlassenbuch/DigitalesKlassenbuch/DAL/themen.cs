@@ -17,7 +17,7 @@ namespace DigitalesKlassenbuch.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public themen()
         {
-            this.lehrgangsinhalte_themen = new HashSet<lehrgangsinhalte_themen>();
+            this.lehrgangsinhalte = new HashSet<lehrgangsinhalte>();
         }
     
         public int themen_id { get; set; }
@@ -25,6 +25,6 @@ namespace DigitalesKlassenbuch.DAL
         public string beschreibung { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lehrgangsinhalte_themen> lehrgangsinhalte_themen { get; set; }
+        public virtual ICollection<lehrgangsinhalte> lehrgangsinhalte { get; set; }
     }
 }

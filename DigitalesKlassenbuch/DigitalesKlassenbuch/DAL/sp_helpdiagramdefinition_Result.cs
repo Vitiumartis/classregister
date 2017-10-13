@@ -10,15 +10,10 @@
 namespace DigitalesKlassenbuch.DAL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class lehrgangsinhalte_themen
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int lehrgangsinhalt_themen_id { get; set; }
-        public int lehrgangsinhalte_id { get; set; }
-        public int themen_id { get; set; }
-    
-        public virtual lehrgangsinhalte lehrgangsinhalte { get; set; }
-        public virtual themen themen { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

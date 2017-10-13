@@ -18,7 +18,7 @@ namespace DigitalesKlassenbuch.DAL
         public lehrgangsinhalte()
         {
             this.abwesende = new HashSet<abwesende>();
-            this.lehrgangsinhalte_themen = new HashSet<lehrgangsinhalte_themen>();
+            this.themen = new HashSet<themen>();
         }
     
         public int lehrgangsinhalts_id { get; set; }
@@ -29,8 +29,8 @@ namespace DigitalesKlassenbuch.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<abwesende> abwesende { get; set; }
         public virtual lehrgang lehrgang { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lehrgangsinhalte_themen> lehrgangsinhalte_themen { get; set; }
         public virtual trainer trainer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<themen> themen { get; set; }
     }
 }

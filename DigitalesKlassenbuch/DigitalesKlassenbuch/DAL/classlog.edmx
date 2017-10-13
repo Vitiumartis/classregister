@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="classlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ClasslogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="abwesende">
           <Key>
             <PropertyRef Name="abwesenheits_id" />
@@ -22,26 +22,26 @@
             <PropertyRef Name="lehrgangs_id" />
           </Key>
           <Property Name="lehrgangs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="beginn" Type="date" />
           <Property Name="ende" Type="date" />
           <Property Name="standort_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="160" />
         </EntityType>
         <EntityType Name="lehrgang_teilnehmer">
           <Key>
-            <PropertyRef Name="lehrgang_teilnehmer_id" />
+            <PropertyRef Name="lehrgangs_id" />
+            <PropertyRef Name="teilnehmer_id" />
           </Key>
           <Property Name="lehrgangs_id" Type="int" Nullable="false" />
           <Property Name="teilnehmer_id" Type="int" Nullable="false" />
-          <Property Name="lehrgang_teilnehmer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="lehrgang_trainer">
           <Key>
-            <PropertyRef Name="lehrgang_trainer_id" />
+            <PropertyRef Name="lehrgangs_id" />
+            <PropertyRef Name="trainer_id" />
           </Key>
           <Property Name="lehrgangs_id" Type="int" Nullable="false" />
           <Property Name="trainer_id" Type="int" Nullable="false" />
-          <Property Name="lehrgang_trainer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="lehrgangsinhalte">
           <Key>
@@ -54,9 +54,9 @@
         </EntityType>
         <EntityType Name="lehrgangsinhalte_themen">
           <Key>
-            <PropertyRef Name="lehrgangsinhalt_themen_id" />
+            <PropertyRef Name="lehrgangsinhalte_id" />
+            <PropertyRef Name="themen_id" />
           </Key>
-          <Property Name="lehrgangsinhalt_themen_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="lehrgangsinhalte_id" Type="int" Nullable="false" />
           <Property Name="themen_id" Type="int" Nullable="false" />
         </EntityType>
@@ -247,7 +247,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="classlogModelStoreContainer">
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ClasslogModelStoreContainer">
           <EntitySet Name="abwesende" EntityType="Self.abwesende" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lehrgang" EntityType="Self.lehrgang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lehrgang_teilnehmer" EntityType="Self.lehrgang_teilnehmer" Schema="dbo" store:Type="Tables" />
@@ -307,7 +338,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="classlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ClasslogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="abwesende">
           <Key>
             <PropertyRef Name="abwesenheits_id" />
@@ -327,34 +358,14 @@
             <PropertyRef Name="lehrgangs_id" />
           </Key>
           <Property Name="lehrgangs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="beginn" Type="DateTime" Precision="0" />
           <Property Name="ende" Type="DateTime" Precision="0" />
           <Property Name="standort_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="lehrgang_teilnehmer" Relationship="Self.fk_lehrgang_lehrgang_teilnehmer" FromRole="lehrgang" ToRole="lehrgang_teilnehmer" />
-          <NavigationProperty Name="lehrgang_trainer" Relationship="Self.fk_lehrgang_lehrgang_trainer" FromRole="lehrgang" ToRole="lehrgang_trainer" />
+          <Property Name="name" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_lehrgang_lehrgangsinhalte" FromRole="lehrgang" ToRole="lehrgangsinhalte" />
           <NavigationProperty Name="standorte" Relationship="Self.fk_standorte_lehrgang" FromRole="lehrgang" ToRole="standorte" />
-        </EntityType>
-        <EntityType Name="lehrgang_teilnehmer">
-          <Key>
-            <PropertyRef Name="lehrgang_teilnehmer_id" />
-          </Key>
-          <Property Name="lehrgangs_id" Type="Int32" Nullable="false" />
-          <Property Name="teilnehmer_id" Type="Int32" Nullable="false" />
-          <Property Name="lehrgang_teilnehmer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="lehrgang" Relationship="Self.fk_lehrgang_lehrgang_teilnehmer" FromRole="lehrgang_teilnehmer" ToRole="lehrgang" />
-          <NavigationProperty Name="teilnehmer" Relationship="Self.fk_teilnehmer_lehrgang_teilnehmer" FromRole="lehrgang_teilnehmer" ToRole="teilnehmer" />
-        </EntityType>
-        <EntityType Name="lehrgang_trainer">
-          <Key>
-            <PropertyRef Name="lehrgang_trainer_id" />
-          </Key>
-          <Property Name="lehrgangs_id" Type="Int32" Nullable="false" />
-          <Property Name="trainer_id" Type="Int32" Nullable="false" />
-          <Property Name="lehrgang_trainer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="lehrgang" Relationship="Self.fk_lehrgang_lehrgang_trainer" FromRole="lehrgang_trainer" ToRole="lehrgang" />
-          <NavigationProperty Name="trainer" Relationship="Self.fk_trainer_lehrgang_trainer" FromRole="lehrgang_trainer" ToRole="trainer" />
+          <NavigationProperty Name="teilnehmer" Relationship="Self.lehrgang_teilnehmer" FromRole="lehrgang" ToRole="teilnehmer" />
+          <NavigationProperty Name="trainer" Relationship="Self.lehrgang_trainer" FromRole="lehrgang" ToRole="trainer" />
         </EntityType>
         <EntityType Name="lehrgangsinhalte">
           <Key>
@@ -366,18 +377,8 @@
           <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="abwesende" Relationship="Self.fk_lehrgangsinhalte_abwesende" FromRole="lehrgangsinhalte" ToRole="abwesende" />
           <NavigationProperty Name="lehrgang" Relationship="Self.fk_lehrgang_lehrgangsinhalte" FromRole="lehrgangsinhalte" ToRole="lehrgang" />
-          <NavigationProperty Name="lehrgangsinhalte_themen" Relationship="Self.fk_lehrgangsinhalte_lehrgangsinhalte_themen" FromRole="lehrgangsinhalte" ToRole="lehrgangsinhalte_themen" />
           <NavigationProperty Name="trainer" Relationship="Self.fk_trainer_lehrgangsinhalte" FromRole="lehrgangsinhalte" ToRole="trainer" />
-        </EntityType>
-        <EntityType Name="lehrgangsinhalte_themen">
-          <Key>
-            <PropertyRef Name="lehrgangsinhalt_themen_id" />
-          </Key>
-          <Property Name="lehrgangsinhalt_themen_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="lehrgangsinhalte_id" Type="Int32" Nullable="false" />
-          <Property Name="themen_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_lehrgangsinhalte_lehrgangsinhalte_themen" FromRole="lehrgangsinhalte_themen" ToRole="lehrgangsinhalte" />
-          <NavigationProperty Name="themen" Relationship="Self.fk_themen_lehrgangsinhalte_themen" FromRole="lehrgangsinhalte_themen" ToRole="themen" />
+          <NavigationProperty Name="themen" Relationship="Self.lehrgangsinhalte_themen" FromRole="lehrgangsinhalte" ToRole="themen" />
         </EntityType>
         <EntityType Name="standorte">
           <Key>
@@ -397,7 +398,7 @@
           <Property Name="vorename" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="nachname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="abwesende" Relationship="Self.fk_teilnehmer_abwesende" FromRole="teilnehmer" ToRole="abwesende" />
-          <NavigationProperty Name="lehrgang_teilnehmer" Relationship="Self.fk_teilnehmer_lehrgang_teilnehmer" FromRole="teilnehmer" ToRole="lehrgang_teilnehmer" />
+          <NavigationProperty Name="lehrgang" Relationship="Self.lehrgang_teilnehmer" FromRole="teilnehmer" ToRole="lehrgang" />
         </EntityType>
         <EntityType Name="themen">
           <Key>
@@ -406,7 +407,7 @@
           <Property Name="themen_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="titel" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="beschreibung" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="lehrgangsinhalte_themen" Relationship="Self.fk_themen_lehrgangsinhalte_themen" FromRole="themen" ToRole="lehrgangsinhalte_themen" />
+          <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.lehrgangsinhalte_themen" FromRole="themen" ToRole="lehrgangsinhalte" />
         </EntityType>
         <EntityType Name="trainer">
           <Key>
@@ -415,8 +416,8 @@
           <Property Name="trainer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="vorname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="nachname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="lehrgang_trainer" Relationship="Self.fk_trainer_lehrgang_trainer" FromRole="trainer" ToRole="lehrgang_trainer" />
           <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_trainer_lehrgangsinhalte" FromRole="trainer" ToRole="lehrgangsinhalte" />
+          <NavigationProperty Name="lehrgang" Relationship="Self.lehrgang_trainer" FromRole="trainer" ToRole="lehrgang" />
         </EntityType>
         <Association Name="fk_lehrgangsinhalte_abwesende">
           <End Role="lehrgangsinhalte" Type="Self.lehrgangsinhalte" Multiplicity="1">
@@ -443,34 +444,6 @@
             </Principal>
             <Dependent Role="abwesende">
               <PropertyRef Name="teilnehmer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_lehrgang_lehrgang_teilnehmer">
-          <End Role="lehrgang" Type="Self.lehrgang" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="lehrgang_teilnehmer" Type="Self.lehrgang_teilnehmer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lehrgang">
-              <PropertyRef Name="lehrgangs_id" />
-            </Principal>
-            <Dependent Role="lehrgang_teilnehmer">
-              <PropertyRef Name="lehrgangs_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_lehrgang_lehrgang_trainer">
-          <End Role="lehrgang" Type="Self.lehrgang" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="lehrgang_trainer" Type="Self.lehrgang_trainer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lehrgang">
-              <PropertyRef Name="lehrgangs_id" />
-            </Principal>
-            <Dependent Role="lehrgang_trainer">
-              <PropertyRef Name="lehrgangs_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -502,48 +475,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_teilnehmer_lehrgang_teilnehmer">
-          <End Role="teilnehmer" Type="Self.teilnehmer" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="lehrgang_teilnehmer" Type="Self.lehrgang_teilnehmer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="teilnehmer">
-              <PropertyRef Name="teilnehmer_id" />
-            </Principal>
-            <Dependent Role="lehrgang_teilnehmer">
-              <PropertyRef Name="teilnehmer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_trainer_lehrgang_trainer">
-          <End Role="trainer" Type="Self.trainer" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="lehrgang_trainer" Type="Self.lehrgang_trainer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="trainer">
-              <PropertyRef Name="trainer_id" />
-            </Principal>
-            <Dependent Role="lehrgang_trainer">
-              <PropertyRef Name="trainer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_lehrgangsinhalte_lehrgangsinhalte_themen">
-          <End Role="lehrgangsinhalte" Type="Self.lehrgangsinhalte" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="lehrgangsinhalte_themen" Type="Self.lehrgangsinhalte_themen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lehrgangsinhalte">
-              <PropertyRef Name="lehrgangsinhalts_id" />
-            </Principal>
-            <Dependent Role="lehrgangsinhalte_themen">
-              <PropertyRef Name="lehrgangsinhalte_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_trainer_lehrgangsinhalte">
           <End Role="trainer" Type="Self.trainer" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -558,27 +489,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_themen_lehrgangsinhalte_themen">
-          <End Role="themen" Type="Self.themen" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="lehrgangsinhalte_themen" Type="Self.lehrgangsinhalte_themen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="themen">
-              <PropertyRef Name="themen_id" />
-            </Principal>
-            <Dependent Role="lehrgangsinhalte_themen">
-              <PropertyRef Name="themen_id" />
-            </Dependent>
-          </ReferentialConstraint>
+        <Association Name="lehrgang_teilnehmer">
+          <End Role="lehrgang" Type="Self.lehrgang" Multiplicity="*" />
+          <End Role="teilnehmer" Type="Self.teilnehmer" Multiplicity="*" />
+        </Association>
+        <Association Name="lehrgang_trainer">
+          <End Role="lehrgang" Type="Self.lehrgang" Multiplicity="*" />
+          <End Role="trainer" Type="Self.trainer" Multiplicity="*" />
+        </Association>
+        <Association Name="lehrgangsinhalte_themen">
+          <End Role="lehrgangsinhalte" Type="Self.lehrgangsinhalte" Multiplicity="*" />
+          <End Role="themen" Type="Self.themen" Multiplicity="*" />
         </Association>
         <EntityContainer Name="classlog" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="abwesende" EntityType="Self.abwesende" />
           <EntitySet Name="lehrgang" EntityType="Self.lehrgang" />
-          <EntitySet Name="lehrgang_teilnehmer" EntityType="Self.lehrgang_teilnehmer" />
-          <EntitySet Name="lehrgang_trainer" EntityType="Self.lehrgang_trainer" />
           <EntitySet Name="lehrgangsinhalte" EntityType="Self.lehrgangsinhalte" />
-          <EntitySet Name="lehrgangsinhalte_themen" EntityType="Self.lehrgangsinhalte_themen" />
           <EntitySet Name="standorte" EntityType="Self.standorte" />
           <EntitySet Name="teilnehmer" EntityType="Self.teilnehmer" />
           <EntitySet Name="themen" EntityType="Self.themen" />
@@ -591,14 +517,6 @@
             <End Role="teilnehmer" EntitySet="teilnehmer" />
             <End Role="abwesende" EntitySet="abwesende" />
           </AssociationSet>
-          <AssociationSet Name="fk_lehrgang_lehrgang_teilnehmer" Association="Self.fk_lehrgang_lehrgang_teilnehmer">
-            <End Role="lehrgang" EntitySet="lehrgang" />
-            <End Role="lehrgang_teilnehmer" EntitySet="lehrgang_teilnehmer" />
-          </AssociationSet>
-          <AssociationSet Name="fk_lehrgang_lehrgang_trainer" Association="Self.fk_lehrgang_lehrgang_trainer">
-            <End Role="lehrgang" EntitySet="lehrgang" />
-            <End Role="lehrgang_trainer" EntitySet="lehrgang_trainer" />
-          </AssociationSet>
           <AssociationSet Name="fk_lehrgang_lehrgangsinhalte" Association="Self.fk_lehrgang_lehrgangsinhalte">
             <End Role="lehrgang" EntitySet="lehrgang" />
             <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
@@ -607,35 +525,72 @@
             <End Role="standorte" EntitySet="standorte" />
             <End Role="lehrgang" EntitySet="lehrgang" />
           </AssociationSet>
-          <AssociationSet Name="fk_teilnehmer_lehrgang_teilnehmer" Association="Self.fk_teilnehmer_lehrgang_teilnehmer">
-            <End Role="teilnehmer" EntitySet="teilnehmer" />
-            <End Role="lehrgang_teilnehmer" EntitySet="lehrgang_teilnehmer" />
-          </AssociationSet>
-          <AssociationSet Name="fk_trainer_lehrgang_trainer" Association="Self.fk_trainer_lehrgang_trainer">
-            <End Role="trainer" EntitySet="trainer" />
-            <End Role="lehrgang_trainer" EntitySet="lehrgang_trainer" />
-          </AssociationSet>
-          <AssociationSet Name="fk_lehrgangsinhalte_lehrgangsinhalte_themen" Association="Self.fk_lehrgangsinhalte_lehrgangsinhalte_themen">
-            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
-            <End Role="lehrgangsinhalte_themen" EntitySet="lehrgangsinhalte_themen" />
-          </AssociationSet>
           <AssociationSet Name="fk_trainer_lehrgangsinhalte" Association="Self.fk_trainer_lehrgangsinhalte">
             <End Role="trainer" EntitySet="trainer" />
             <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
           </AssociationSet>
-          <AssociationSet Name="fk_themen_lehrgangsinhalte_themen" Association="Self.fk_themen_lehrgangsinhalte_themen">
-            <End Role="themen" EntitySet="themen" />
-            <End Role="lehrgangsinhalte_themen" EntitySet="lehrgangsinhalte_themen" />
+          <AssociationSet Name="lehrgang_teilnehmer" Association="Self.lehrgang_teilnehmer">
+            <End Role="lehrgang" EntitySet="lehrgang" />
+            <End Role="teilnehmer" EntitySet="teilnehmer" />
           </AssociationSet>
+          <AssociationSet Name="lehrgang_trainer" Association="Self.lehrgang_trainer">
+            <End Role="lehrgang" EntitySet="lehrgang" />
+            <End Role="trainer" EntitySet="trainer" />
+          </AssociationSet>
+          <AssociationSet Name="lehrgangsinhalte_themen" Association="Self.lehrgangsinhalte_themen">
+            <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
+            <End Role="themen" EntitySet="themen" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ClasslogModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ClasslogModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="classlogModelStoreContainer" CdmEntityContainer="classlog">
+        <EntityContainerMapping StorageEntityContainer="ClasslogModelStoreContainer" CdmEntityContainer="classlog">
           <EntitySetMapping Name="abwesende">
-            <EntityTypeMapping TypeName="classlogModel.abwesende">
+            <EntityTypeMapping TypeName="ClasslogModel.abwesende">
               <MappingFragment StoreEntitySet="abwesende">
                 <ScalarProperty Name="abwesenheits_id" ColumnName="abwesenheits_id" />
                 <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalts_id" />
@@ -648,36 +603,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lehrgang">
-            <EntityTypeMapping TypeName="classlogModel.lehrgang">
+            <EntityTypeMapping TypeName="ClasslogModel.lehrgang">
               <MappingFragment StoreEntitySet="lehrgang">
                 <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="beginn" ColumnName="beginn" />
                 <ScalarProperty Name="ende" ColumnName="ende" />
                 <ScalarProperty Name="standort_id" ColumnName="standort_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="lehrgang_teilnehmer">
-            <EntityTypeMapping TypeName="classlogModel.lehrgang_teilnehmer">
-              <MappingFragment StoreEntitySet="lehrgang_teilnehmer">
-                <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
-                <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
-                <ScalarProperty Name="lehrgang_teilnehmer_id" ColumnName="lehrgang_teilnehmer_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="lehrgang_trainer">
-            <EntityTypeMapping TypeName="classlogModel.lehrgang_trainer">
-              <MappingFragment StoreEntitySet="lehrgang_trainer">
-                <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
-                <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
-                <ScalarProperty Name="lehrgang_trainer_id" ColumnName="lehrgang_trainer_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lehrgangsinhalte">
-            <EntityTypeMapping TypeName="classlogModel.lehrgangsinhalte">
+            <EntityTypeMapping TypeName="ClasslogModel.lehrgangsinhalte">
               <MappingFragment StoreEntitySet="lehrgangsinhalte">
                 <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalts_id" />
                 <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
@@ -686,17 +623,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="lehrgangsinhalte_themen">
-            <EntityTypeMapping TypeName="classlogModel.lehrgangsinhalte_themen">
-              <MappingFragment StoreEntitySet="lehrgangsinhalte_themen">
-                <ScalarProperty Name="lehrgangsinhalt_themen_id" ColumnName="lehrgangsinhalt_themen_id" />
-                <ScalarProperty Name="lehrgangsinhalte_id" ColumnName="lehrgangsinhalte_id" />
-                <ScalarProperty Name="themen_id" ColumnName="themen_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="standorte">
-            <EntityTypeMapping TypeName="classlogModel.standorte">
+            <EntityTypeMapping TypeName="ClasslogModel.standorte">
               <MappingFragment StoreEntitySet="standorte">
                 <ScalarProperty Name="standort_id" ColumnName="standort_id" />
                 <ScalarProperty Name="straße" ColumnName="straße" />
@@ -706,7 +634,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="teilnehmer">
-            <EntityTypeMapping TypeName="classlogModel.teilnehmer">
+            <EntityTypeMapping TypeName="ClasslogModel.teilnehmer">
               <MappingFragment StoreEntitySet="teilnehmer">
                 <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
                 <ScalarProperty Name="vorename" ColumnName="vorename" />
@@ -715,7 +643,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="themen">
-            <EntityTypeMapping TypeName="classlogModel.themen">
+            <EntityTypeMapping TypeName="ClasslogModel.themen">
               <MappingFragment StoreEntitySet="themen">
                 <ScalarProperty Name="themen_id" ColumnName="themen_id" />
                 <ScalarProperty Name="titel" ColumnName="titel" />
@@ -724,7 +652,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="trainer">
-            <EntityTypeMapping TypeName="classlogModel.trainer">
+            <EntityTypeMapping TypeName="ClasslogModel.trainer">
               <MappingFragment StoreEntitySet="trainer">
                 <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
                 <ScalarProperty Name="vorname" ColumnName="vorname" />
@@ -732,6 +660,54 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="lehrgang_teilnehmer" TypeName="ClasslogModel.lehrgang_teilnehmer" StoreEntitySet="lehrgang_teilnehmer">
+            <EndProperty Name="lehrgang">
+              <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
+            </EndProperty>
+            <EndProperty Name="teilnehmer">
+              <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="lehrgang_trainer" TypeName="ClasslogModel.lehrgang_trainer" StoreEntitySet="lehrgang_trainer">
+            <EndProperty Name="lehrgang">
+              <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
+            </EndProperty>
+            <EndProperty Name="trainer">
+              <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="lehrgangsinhalte_themen" TypeName="ClasslogModel.lehrgangsinhalte_themen" StoreEntitySet="lehrgangsinhalte_themen">
+            <EndProperty Name="lehrgangsinhalte">
+              <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalte_id" />
+            </EndProperty>
+            <EndProperty Name="themen">
+              <ScalarProperty Name="themen_id" ColumnName="themen_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ClasslogModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ClasslogModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ClasslogModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ClasslogModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClasslogModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ClasslogModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClasslogModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ClasslogModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ClasslogModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
