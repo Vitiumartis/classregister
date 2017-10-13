@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="classlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ClasslogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="abwesende">
           <Key>
             <PropertyRef Name="abwesenheits_id" />
@@ -278,7 +278,7 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="classlogModelStoreContainer">
+        <EntityContainer Name="ClasslogModelStoreContainer">
           <EntitySet Name="abwesende" EntityType="Self.abwesende" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lehrgang" EntityType="Self.lehrgang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lehrgang_teilnehmer" EntityType="Self.lehrgang_teilnehmer" Schema="dbo" store:Type="Tables" />
@@ -338,7 +338,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="classlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ClasslogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="abwesende">
           <Key>
             <PropertyRef Name="abwesenheits_id" />
@@ -557,11 +557,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(classlogModel.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ClasslogModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(classlogModel.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ClasslogModel.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -588,9 +588,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="classlogModelStoreContainer" CdmEntityContainer="classlog">
+        <EntityContainerMapping StorageEntityContainer="ClasslogModelStoreContainer" CdmEntityContainer="classlog">
           <EntitySetMapping Name="abwesende">
-            <EntityTypeMapping TypeName="classlogModel.abwesende">
+            <EntityTypeMapping TypeName="ClasslogModel.abwesende">
               <MappingFragment StoreEntitySet="abwesende">
                 <ScalarProperty Name="abwesenheits_id" ColumnName="abwesenheits_id" />
                 <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalts_id" />
@@ -603,7 +603,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lehrgang">
-            <EntityTypeMapping TypeName="classlogModel.lehrgang">
+            <EntityTypeMapping TypeName="ClasslogModel.lehrgang">
               <MappingFragment StoreEntitySet="lehrgang">
                 <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
                 <ScalarProperty Name="beginn" ColumnName="beginn" />
@@ -614,7 +614,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lehrgangsinhalte">
-            <EntityTypeMapping TypeName="classlogModel.lehrgangsinhalte">
+            <EntityTypeMapping TypeName="ClasslogModel.lehrgangsinhalte">
               <MappingFragment StoreEntitySet="lehrgangsinhalte">
                 <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalts_id" />
                 <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
@@ -624,7 +624,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="standorte">
-            <EntityTypeMapping TypeName="classlogModel.standorte">
+            <EntityTypeMapping TypeName="ClasslogModel.standorte">
               <MappingFragment StoreEntitySet="standorte">
                 <ScalarProperty Name="standort_id" ColumnName="standort_id" />
                 <ScalarProperty Name="straße" ColumnName="straße" />
@@ -634,7 +634,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="teilnehmer">
-            <EntityTypeMapping TypeName="classlogModel.teilnehmer">
+            <EntityTypeMapping TypeName="ClasslogModel.teilnehmer">
               <MappingFragment StoreEntitySet="teilnehmer">
                 <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
                 <ScalarProperty Name="vorename" ColumnName="vorename" />
@@ -643,7 +643,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="themen">
-            <EntityTypeMapping TypeName="classlogModel.themen">
+            <EntityTypeMapping TypeName="ClasslogModel.themen">
               <MappingFragment StoreEntitySet="themen">
                 <ScalarProperty Name="themen_id" ColumnName="themen_id" />
                 <ScalarProperty Name="titel" ColumnName="titel" />
@@ -652,7 +652,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="trainer">
-            <EntityTypeMapping TypeName="classlogModel.trainer">
+            <EntityTypeMapping TypeName="ClasslogModel.trainer">
               <MappingFragment StoreEntitySet="trainer">
                 <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
                 <ScalarProperty Name="vorname" ColumnName="vorname" />
@@ -660,7 +660,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="lehrgang_teilnehmer" TypeName="classlogModel.lehrgang_teilnehmer" StoreEntitySet="lehrgang_teilnehmer">
+          <AssociationSetMapping Name="lehrgang_teilnehmer" TypeName="ClasslogModel.lehrgang_teilnehmer" StoreEntitySet="lehrgang_teilnehmer">
             <EndProperty Name="lehrgang">
               <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
             </EndProperty>
@@ -668,7 +668,7 @@
               <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="lehrgang_trainer" TypeName="classlogModel.lehrgang_trainer" StoreEntitySet="lehrgang_trainer">
+          <AssociationSetMapping Name="lehrgang_trainer" TypeName="ClasslogModel.lehrgang_trainer" StoreEntitySet="lehrgang_trainer">
             <EndProperty Name="lehrgang">
               <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
             </EndProperty>
@@ -676,7 +676,7 @@
               <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="lehrgangsinhalte_themen" TypeName="classlogModel.lehrgangsinhalte_themen" StoreEntitySet="lehrgangsinhalte_themen">
+          <AssociationSetMapping Name="lehrgangsinhalte_themen" TypeName="ClasslogModel.lehrgangsinhalte_themen" StoreEntitySet="lehrgangsinhalte_themen">
             <EndProperty Name="lehrgangsinhalte">
               <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalte_id" />
             </EndProperty>
@@ -684,20 +684,20 @@
               <ScalarProperty Name="themen_id" ColumnName="themen_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="classlogModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="classlogModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="classlogModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="classlogModel.Store.sp_helpdiagramdefinition">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ClasslogModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ClasslogModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ClasslogModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ClasslogModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="classlogModel.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="ClasslogModel.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="classlogModel.Store.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ClasslogModel.Store.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="classlogModel.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="ClasslogModel.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -706,8 +706,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="classlogModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="classlogModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ClasslogModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ClasslogModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
