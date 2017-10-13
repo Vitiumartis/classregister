@@ -1,5 +1,6 @@
 USE [master]
 GO
+
 /****** Object:  Database [classlog]    Script Date: 13.10.2017 09:42:04 ******/
 CREATE DATABASE [classlog]
  CONTAINMENT = NONE
