@@ -17,7 +17,7 @@ namespace DigitalesKlassenbuch.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public lehrgangsinhalte()
         {
-            this.abwesendes = new HashSet<abwesende>();
+            this.abwesende = new HashSet<abwesende>();
             this.themen = new HashSet<themen>();
         }
     
@@ -27,7 +27,7 @@ namespace DigitalesKlassenbuch.DAL
         public System.DateTime date { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<abwesende> abwesendes { get; set; }
+        public virtual ICollection<abwesende> abwesende { get; set; }
         public virtual lehrgang lehrgang { get; set; }
         public virtual trainer trainer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

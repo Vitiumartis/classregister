@@ -17,23 +17,23 @@ namespace DigitalesKlassenbuch.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public lehrgang()
         {
-            this.lehrgangsinhaltes = new HashSet<lehrgangsinhalte>();
-            this.teilnehmers = new HashSet<teilnehmer>();
-            this.trainers = new HashSet<trainer>();
+            this.lehrgangsinhalte = new HashSet<lehrgangsinhalte>();
+            this.teilnehmer = new HashSet<teilnehmer>();
+            this.trainer = new HashSet<trainer>();
         }
     
         public int lehrgangs_id { get; set; }
-        public string name { get; set; }
         public Nullable<System.DateTime> beginn { get; set; }
         public Nullable<System.DateTime> ende { get; set; }
         public int standort_id { get; set; }
+        public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<lehrgangsinhalte> lehrgangsinhaltes { get; set; }
+        public virtual ICollection<lehrgangsinhalte> lehrgangsinhalte { get; set; }
         public virtual standorte standorte { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<teilnehmer> teilnehmers { get; set; }
+        public virtual ICollection<teilnehmer> teilnehmer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trainer> trainers { get; set; }
+        public virtual ICollection<trainer> trainer { get; set; }
     }
 }

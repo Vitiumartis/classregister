@@ -154,7 +154,7 @@
       <DependentUpon>classlog.edmx</DependentUpon>
       <LastGenOutput>classlog.cs</LastGenOutput>
     </Content>
-    <Content Include="DB TSQL\classlog base model v0.1.1 mssql 2016.sql" />
+    <Content Include="DB TSQL\classlog base model v0.1.2 mssql 2016.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Dienste\LehrgansinhalteNeu.aspx" />
     <Content Include="favicon.ico" />
