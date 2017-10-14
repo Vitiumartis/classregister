@@ -18,11 +18,9 @@
               </div>
 
               <div class="col-md-5">
-                  
-                    <asp:DropDownList ID="DropDownListOrt" runat="server" DataSourceID="SqlDataSourceOrt" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                     
-                    </asp:DropDownList>
-           <asp:SqlDataSource ID="SqlDataSourceOrt" runat="server" ConnectionString="<%$ ConnectionStrings:classlogConnectionString %>" SelectCommand="SELECT [ort] FROM [standorte]" ProviderName="<%$ ConnectionStrings:classlogConnectionString.ProviderName %>"></asp:SqlDataSource>
+
+                  <asp:DropDownList ID="DropDownListOrt" runat="server" DataSourceID="EntityDataSource1" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" DataTextField="ort" DataValueField="ort"></asp:DropDownList>
+                  <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=classlog" DefaultContainerName="classlog" EnableFlattening="False" EntitySetName="standorte"></asp:EntityDataSource>
               </div>
 
               <%--       <div class="dropdown">
@@ -65,7 +63,13 @@
              
 
               <div class="mr-4"></div>
-              <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSourceOrt">
+              <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="EntityDataSource1" DataKeyNames="standort_id">
+                  <Columns>
+                      <asp:BoundField DataField="standort_id" HeaderText="standort_id" ReadOnly="True" SortExpression="standort_id" />
+                      <asp:BoundField DataField="straße" HeaderText="straße" SortExpression="straße" />
+                      <asp:BoundField DataField="ort" HeaderText="ort" SortExpression="ort" />
+                      <asp:BoundField DataField="plz" HeaderText="plz" SortExpression="plz" />
+                  </Columns>
                  </asp:GridView>
            
           </div>

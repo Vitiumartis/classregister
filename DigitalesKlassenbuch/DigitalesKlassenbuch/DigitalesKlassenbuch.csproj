@@ -54,11 +54,8 @@
     <Reference Include="AspNet.ScriptManager.jQuery, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -96,6 +93,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -155,6 +153,7 @@
     <Content Include="DB TSQL\classlog base model v0.1.2 mssql 2016.sql" />
     <Content Include="DB TSQL\scriptDaten.sql" />
     <Content Include="Default.aspx" />
+    <Content Include="Dienste\fehlzeiten.aspx" />
     <Content Include="Dienste\LehrgansinhalteNeu.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -245,12 +244,6 @@
     <Compile Include="DAL\lehrgangsinhalte.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\sp_helpdiagrams_Result.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\standorte.cs">
       <DependentUpon>classlog.tt</DependentUpon>
     </Compile>
@@ -269,6 +262,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dienste\fehlzeiten.aspx.cs">
+      <DependentUpon>fehlzeiten.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dienste\fehlzeiten.aspx.designer.cs">
+      <DependentUpon>fehlzeiten.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dienste\LehrgansinhalteNeu.aspx.cs">
       <DependentUpon>LehrgansinhalteNeu.aspx</DependentUpon>

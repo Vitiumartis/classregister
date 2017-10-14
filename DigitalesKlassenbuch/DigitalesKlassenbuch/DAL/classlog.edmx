@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ClasslogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="classlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="abwesende">
           <Key>
             <PropertyRef Name="abwesenheits_id" />
@@ -247,38 +247,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="ClasslogModelStoreContainer">
+        <EntityContainer Name="classlogModelStoreContainer">
           <EntitySet Name="abwesende" EntityType="Self.abwesende" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lehrgang" EntityType="Self.lehrgang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lehrgang_teilnehmer" EntityType="Self.lehrgang_teilnehmer" Schema="dbo" store:Type="Tables" />
@@ -338,7 +307,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ClasslogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="classlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="abwesende">
           <Key>
             <PropertyRef Name="abwesenheits_id" />
@@ -541,56 +510,15 @@
             <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
             <End Role="themen" EntitySet="themen" />
           </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ClasslogModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ClasslogModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ClasslogModelStoreContainer" CdmEntityContainer="classlog">
+        <EntityContainerMapping StorageEntityContainer="classlogModelStoreContainer" CdmEntityContainer="classlog">
           <EntitySetMapping Name="abwesende">
-            <EntityTypeMapping TypeName="ClasslogModel.abwesende">
+            <EntityTypeMapping TypeName="classlogModel.abwesende">
               <MappingFragment StoreEntitySet="abwesende">
                 <ScalarProperty Name="abwesenheits_id" ColumnName="abwesenheits_id" />
                 <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalts_id" />
@@ -603,7 +531,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lehrgang">
-            <EntityTypeMapping TypeName="ClasslogModel.lehrgang">
+            <EntityTypeMapping TypeName="classlogModel.lehrgang">
               <MappingFragment StoreEntitySet="lehrgang">
                 <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
                 <ScalarProperty Name="beginn" ColumnName="beginn" />
@@ -614,7 +542,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lehrgangsinhalte">
-            <EntityTypeMapping TypeName="ClasslogModel.lehrgangsinhalte">
+            <EntityTypeMapping TypeName="classlogModel.lehrgangsinhalte">
               <MappingFragment StoreEntitySet="lehrgangsinhalte">
                 <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalts_id" />
                 <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
@@ -624,7 +552,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="standorte">
-            <EntityTypeMapping TypeName="ClasslogModel.standorte">
+            <EntityTypeMapping TypeName="classlogModel.standorte">
               <MappingFragment StoreEntitySet="standorte">
                 <ScalarProperty Name="standort_id" ColumnName="standort_id" />
                 <ScalarProperty Name="straße" ColumnName="straße" />
@@ -634,7 +562,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="teilnehmer">
-            <EntityTypeMapping TypeName="ClasslogModel.teilnehmer">
+            <EntityTypeMapping TypeName="classlogModel.teilnehmer">
               <MappingFragment StoreEntitySet="teilnehmer">
                 <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
                 <ScalarProperty Name="vorename" ColumnName="vorename" />
@@ -643,7 +571,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="themen">
-            <EntityTypeMapping TypeName="ClasslogModel.themen">
+            <EntityTypeMapping TypeName="classlogModel.themen">
               <MappingFragment StoreEntitySet="themen">
                 <ScalarProperty Name="themen_id" ColumnName="themen_id" />
                 <ScalarProperty Name="titel" ColumnName="titel" />
@@ -652,7 +580,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="trainer">
-            <EntityTypeMapping TypeName="ClasslogModel.trainer">
+            <EntityTypeMapping TypeName="classlogModel.trainer">
               <MappingFragment StoreEntitySet="trainer">
                 <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
                 <ScalarProperty Name="vorname" ColumnName="vorname" />
@@ -660,7 +588,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="lehrgang_teilnehmer" TypeName="ClasslogModel.lehrgang_teilnehmer" StoreEntitySet="lehrgang_teilnehmer">
+          <AssociationSetMapping Name="lehrgang_teilnehmer" TypeName="classlogModel.lehrgang_teilnehmer" StoreEntitySet="lehrgang_teilnehmer">
             <EndProperty Name="lehrgang">
               <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
             </EndProperty>
@@ -668,7 +596,7 @@
               <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="lehrgang_trainer" TypeName="ClasslogModel.lehrgang_trainer" StoreEntitySet="lehrgang_trainer">
+          <AssociationSetMapping Name="lehrgang_trainer" TypeName="classlogModel.lehrgang_trainer" StoreEntitySet="lehrgang_trainer">
             <EndProperty Name="lehrgang">
               <ScalarProperty Name="lehrgangs_id" ColumnName="lehrgangs_id" />
             </EndProperty>
@@ -676,7 +604,7 @@
               <ScalarProperty Name="trainer_id" ColumnName="trainer_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="lehrgangsinhalte_themen" TypeName="ClasslogModel.lehrgangsinhalte_themen" StoreEntitySet="lehrgangsinhalte_themen">
+          <AssociationSetMapping Name="lehrgangsinhalte_themen" TypeName="classlogModel.lehrgangsinhalte_themen" StoreEntitySet="lehrgangsinhalte_themen">
             <EndProperty Name="lehrgangsinhalte">
               <ScalarProperty Name="lehrgangsinhalts_id" ColumnName="lehrgangsinhalte_id" />
             </EndProperty>
@@ -684,30 +612,6 @@
               <ScalarProperty Name="themen_id" ColumnName="themen_id" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ClasslogModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ClasslogModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ClasslogModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ClasslogModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ClasslogModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ClasslogModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ClasslogModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ClasslogModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ClasslogModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -724,8 +628,8 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
