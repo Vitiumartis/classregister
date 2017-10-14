@@ -21,8 +21,8 @@ namespace DigitalesKlassenbuch.DAL
         }
     
         public int teilnehmer_id { get; set; }
-        public string vorename { get; set; }
         public string nachname { get; set; }
+        public string vorname { get; set; }
     
         public virtual ICollection<abwesende> abwesende { get; set; }
         public virtual ICollection<lehrgang> lehrgang { get; set; }

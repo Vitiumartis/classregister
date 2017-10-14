@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9a245d5fcafb46828124eacbf3030a94" Name="Diagram1">
-        <EntityTypeShape EntityType="classlogModel.abwesende" Width="1.5" PointX="9.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.abwesende" Width="1.5" PointX="0.625" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="classlogModel.lehrgang" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="classlogModel.lehrgangsinhalte" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="classlogModel.standorte" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="classlogModel.teilnehmer" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="classlogModel.themen" Width="1.5" PointX="9.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="classlogModel.trainer" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.lehrgangsinhalte" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.standorte" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.teilnehmer" Width="1.5" PointX="0.625" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.themen" Width="1.5" PointX="5.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="classlogModel.trainer" Width="1.5" PointX="5.5" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="classlogModel.fk_lehrgangsinhalte_abwesende" ManuallyRouted="false" />
         <AssociationConnector Association="classlogModel.fk_teilnehmer_abwesende" ManuallyRouted="false" />
         <AssociationConnector Association="classlogModel.fk_lehrgang_lehrgangsinhalte" ManuallyRouted="false" />

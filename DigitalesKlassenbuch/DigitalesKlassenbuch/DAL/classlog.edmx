@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="classlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="classlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="abwesende">
           <Key>
             <PropertyRef Name="abwesenheits_id" />
@@ -12,8 +12,8 @@
           <Property Name="abwesenheits_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="lehrgangsinhalts_id" Type="int" Nullable="false" />
           <Property Name="teilnehmer_id" Type="int" Nullable="false" />
-          <Property Name="abwesend_seit" Type="datetime2" Precision="0" />
-          <Property Name="abwesend_bis" Type="datetime2" Precision="0" />
+          <Property Name="abwesend_seit" Type="time" Precision="0" />
+          <Property Name="abwesend_bis" Type="time" Precision="0" />
           <Property Name="abwesend_ganztägig" Type="bit" />
           <Property Name="grund" Type="nvarchar" MaxLength="64" />
         </EntityType>
@@ -74,7 +74,7 @@
             <PropertyRef Name="teilnehmer_id" />
           </Key>
           <Property Name="teilnehmer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="vorename" Type="nvarchar" MaxLength="64" />
+          <Property Name="vorname" Type="nvarchar" MaxLength="64" />
           <Property Name="nachname" Type="nvarchar" MaxLength="64" Nullable="false" />
         </EntityType>
         <EntityType Name="themen">
@@ -303,8 +303,7 @@
             <End Role="lehrgangsinhalte" EntitySet="lehrgangsinhalte" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="classlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -315,8 +314,8 @@
           <Property Name="abwesenheits_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="lehrgangsinhalts_id" Type="Int32" Nullable="false" />
           <Property Name="teilnehmer_id" Type="Int32" Nullable="false" />
-          <Property Name="abwesend_seit" Type="DateTime" Precision="0" />
-          <Property Name="abwesend_bis" Type="DateTime" Precision="0" />
+          <Property Name="abwesend_seit" Type="Time" Precision="0" />
+          <Property Name="abwesend_bis" Type="Time" Precision="0" />
           <Property Name="abwesend_ganztägig" Type="Boolean" />
           <Property Name="grund" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_lehrgangsinhalte_abwesende" FromRole="abwesende" ToRole="lehrgangsinhalte" />
@@ -364,10 +363,10 @@
             <PropertyRef Name="teilnehmer_id" />
           </Key>
           <Property Name="teilnehmer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="vorename" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="nachname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="abwesende" Relationship="Self.fk_teilnehmer_abwesende" FromRole="teilnehmer" ToRole="abwesende" />
           <NavigationProperty Name="lehrgang" Relationship="Self.lehrgang_teilnehmer" FromRole="teilnehmer" ToRole="lehrgang" />
+          <Property Name="vorname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="themen">
           <Key>
@@ -564,8 +563,8 @@
           <EntitySetMapping Name="teilnehmer">
             <EntityTypeMapping TypeName="classlogModel.teilnehmer">
               <MappingFragment StoreEntitySet="teilnehmer">
+                <ScalarProperty Name="vorname" ColumnName="vorname" />
                 <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
-                <ScalarProperty Name="vorename" ColumnName="vorename" />
                 <ScalarProperty Name="nachname" ColumnName="nachname" />
               </MappingFragment>
             </EntityTypeMapping>
