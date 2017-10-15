@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace DigitalesKlassenbuch.Dienste
 {
     public partial class Lehrgansinhalte : Page
@@ -14,7 +15,14 @@ namespace DigitalesKlassenbuch.Dienste
 
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+      
+
+        protected void DropDownListOrt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        protected void DropDownListLehrgang_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
