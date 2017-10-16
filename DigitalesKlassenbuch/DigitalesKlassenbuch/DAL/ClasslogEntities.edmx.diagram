@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f2b9f506ef34b81b7d5a6b71a15f7ab" Name="Diagram1">
+        <EntityTypeShape EntityType="ClasslogModel.abwesende" Width="1.5" PointX="9.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClasslogModel.lehrgang" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClasslogModel.lehrgangsinhalte" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClasslogModel.standorte" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClasslogModel.teilnehmer" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClasslogModel.themen" Width="1.5" PointX="9.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClasslogModel.trainer" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="ClasslogModel.fk_lehrgangsinhalte_abwesende" ManuallyRouted="false" />
+        <AssociationConnector Association="ClasslogModel.fk_teilnehmer_abwesende" ManuallyRouted="false" />
+        <AssociationConnector Association="ClasslogModel.fk_lehrgang_lehrgangsinhalte" ManuallyRouted="false" />
+        <AssociationConnector Association="ClasslogModel.fk_standorte_lehrgang" ManuallyRouted="false" />
+        <AssociationConnector Association="ClasslogModel.fk_trainer_lehrgangsinhalte" ManuallyRouted="false" />
+        <AssociationConnector Association="ClasslogModel.lehrgang_teilnehmer" ManuallyRouted="false" />
+        <AssociationConnector Association="ClasslogModel.lehrgang_trainer" ManuallyRouted="false" />
+        <AssociationConnector Association="ClasslogModel.lehrgangsinhalte_themen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

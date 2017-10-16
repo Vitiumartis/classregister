@@ -140,18 +140,18 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="DAL\classlog.Context.tt">
+    <Content Include="DAL\ClasslogEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>classlog.edmx</DependentUpon>
-      <LastGenOutput>classlog.Context.cs</LastGenOutput>
+      <LastGenOutput>ClasslogEntities.Context.cs</LastGenOutput>
+      <DependentUpon>ClasslogEntities.edmx</DependentUpon>
     </Content>
-    <Content Include="DAL\classlog.tt">
+    <Content Include="DAL\ClasslogEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>classlog.edmx</DependentUpon>
-      <LastGenOutput>classlog.cs</LastGenOutput>
+      <DependentUpon>ClasslogEntities.edmx</DependentUpon>
+      <LastGenOutput>ClasslogEntities.cs</LastGenOutput>
     </Content>
     <Content Include="DB TSQL\classlog base model v0.1.2 mssql 2016.sql" />
-    <Content Include="DB TSQL\scriptDaten.sql" />
+    <Content Include="DB TSQL\scriptDatan.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Dienste\fehlzeiten.aspx" />
     <Content Include="Dienste\LehrgansinhalteNeu.aspx" />
@@ -169,12 +169,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="DAL\classlog.edmx">
+    <EntityDeploy Include="DAL\ClasslogEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>classlog.Designer.cs</LastGenOutput>
+      <LastGenOutput>ClasslogEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="DAL\classlog.edmx.diagram">
-      <DependentUpon>classlog.edmx</DependentUpon>
+    <Content Include="DAL\ClasslogEntities.edmx.diagram">
+      <DependentUpon>ClasslogEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Dienste\Abwesenheitsliste.aspx" />
@@ -221,40 +221,40 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="DAL\abwesende.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\classlog.Context.cs">
+    <Compile Include="DAL\ClasslogEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>classlog.Context.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\classlog.cs">
+    <Compile Include="DAL\ClasslogEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\classlog.Designer.cs">
+    <Compile Include="DAL\ClasslogEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>classlog.edmx</DependentUpon>
+      <DependentUpon>ClasslogEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="DAL\lehrgang.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\lehrgangsinhalte.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\standorte.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\teilnehmer.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\themen.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\trainer.cs">
-      <DependentUpon>classlog.tt</DependentUpon>
+      <DependentUpon>ClasslogEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
