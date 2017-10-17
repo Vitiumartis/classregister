@@ -74,8 +74,9 @@ body {
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 4280px;*/
 }
+
 
 
 /* Responsive: Portrait tablets and up */
