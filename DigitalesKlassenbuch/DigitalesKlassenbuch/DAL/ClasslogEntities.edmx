@@ -12,8 +12,8 @@
           <Property Name="abwesenheits_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="lehrgangsinhalts_id" Type="int" Nullable="false" />
           <Property Name="teilnehmer_id" Type="int" Nullable="false" />
-          <Property Name="abwesend_seit" Type="datetime2" Precision="0" />
-          <Property Name="abwesend_bis" Type="datetime2" Precision="0" />
+          <Property Name="abwesend_seit" Type="time" Precision="0" />
+          <Property Name="abwesend_bis" Type="time" Precision="0" />
           <Property Name="abwesend_ganztägig" Type="bit" />
           <Property Name="grund" Type="nvarchar" MaxLength="64" />
         </EntityType>
@@ -74,7 +74,7 @@
             <PropertyRef Name="teilnehmer_id" />
           </Key>
           <Property Name="teilnehmer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="vorename" Type="nvarchar" MaxLength="64" />
+          <Property Name="vorname" Type="nvarchar" MaxLength="64" />
           <Property Name="nachname" Type="nvarchar" MaxLength="64" Nullable="false" />
         </EntityType>
         <EntityType Name="themen">
@@ -315,8 +315,8 @@
           <Property Name="abwesenheits_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="lehrgangsinhalts_id" Type="Int32" Nullable="false" />
           <Property Name="teilnehmer_id" Type="Int32" Nullable="false" />
-          <Property Name="abwesend_seit" Type="DateTime" Precision="0" />
-          <Property Name="abwesend_bis" Type="DateTime" Precision="0" />
+          <Property Name="abwesend_seit" Type="Time" Precision="0" />
+          <Property Name="abwesend_bis" Type="Time" Precision="0" />
           <Property Name="abwesend_ganztägig" Type="Boolean" />
           <Property Name="grund" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="lehrgangsinhalte" Relationship="Self.fk_lehrgangsinhalte_abwesende" FromRole="abwesende" ToRole="lehrgangsinhalte" />
@@ -364,7 +364,7 @@
             <PropertyRef Name="teilnehmer_id" />
           </Key>
           <Property Name="teilnehmer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="vorename" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="vorname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="nachname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="abwesende" Relationship="Self.fk_teilnehmer_abwesende" FromRole="teilnehmer" ToRole="abwesende" />
           <NavigationProperty Name="lehrgang" Relationship="Self.lehrgang_teilnehmer" FromRole="teilnehmer" ToRole="lehrgang" />
@@ -565,7 +565,7 @@
             <EntityTypeMapping TypeName="ClasslogModel.teilnehmer">
               <MappingFragment StoreEntitySet="teilnehmer">
                 <ScalarProperty Name="teilnehmer_id" ColumnName="teilnehmer_id" />
-                <ScalarProperty Name="vorename" ColumnName="vorename" />
+                <ScalarProperty Name="vorname" ColumnName="vorname" />
                 <ScalarProperty Name="nachname" ColumnName="nachname" />
               </MappingFragment>
             </EntityTypeMapping>

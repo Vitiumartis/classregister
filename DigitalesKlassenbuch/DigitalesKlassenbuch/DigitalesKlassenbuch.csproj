@@ -142,16 +142,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="DAL\ClasslogEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ClasslogEntities.Context.cs</LastGenOutput>
       <DependentUpon>ClasslogEntities.edmx</DependentUpon>
+      <LastGenOutput>ClasslogEntities.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DAL\ClasslogEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ClasslogEntities.edmx</DependentUpon>
       <LastGenOutput>ClasslogEntities.cs</LastGenOutput>
     </Content>
-    <Content Include="DB TSQL\classlog base model v0.1.2 mssql 2016.sql" />
-    <Content Include="DB TSQL\scriptDatan.sql" />
+    <Content Include="DB TSQL\classlog base model v0.2 mssql 2016 schema only.sql" />
+    <Content Include="DB TSQL\scriptDaten.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Dienste\fehlzeiten.aspx" />
     <Content Include="Dienste\LehrgansinhalteNeu.aspx" />
@@ -179,6 +179,7 @@
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Dienste\Abwesenheitsliste.aspx" />
     <Content Include="Dienste\Lehrgansinhalte.aspx" />
+    <Content Include="Infos\Links.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

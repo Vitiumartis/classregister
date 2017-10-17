@@ -17,8 +17,8 @@ namespace DigitalesKlassenbuch.DAL
         public int abwesenheits_id { get; set; }
         public int lehrgangsinhalts_id { get; set; }
         public int teilnehmer_id { get; set; }
-        public Nullable<System.DateTime> abwesend_seit { get; set; }
-        public Nullable<System.DateTime> abwesend_bis { get; set; }
+        public Nullable<System.TimeSpan> abwesend_seit { get; set; }
+        public Nullable<System.TimeSpan> abwesend_bis { get; set; }
         public Nullable<bool> abwesend_ganztägig { get; set; }
         public string grund { get; set; }
     
